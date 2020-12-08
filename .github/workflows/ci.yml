@@ -10,7 +10,7 @@ env:
 
 jobs:
   psalm:
-    name: "Static Analysis"
+    name: "Psalm - Static Analysis"
     runs-on: ubuntu-latest
     timeout-minutes: 20
     strategy:
@@ -29,5 +29,5 @@ jobs:
           ini-values: memory_limit=-1
           tools: pecl, composer, psalm
           coverage: none
-      - name: Run PHP-CS-Fixer fix
+      - name: Run psalm
         run: psalm --shepherd --stats
