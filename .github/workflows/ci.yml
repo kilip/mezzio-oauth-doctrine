@@ -27,7 +27,7 @@ jobs:
           php-version: ${{ matrix.php }}
           extensions: intl, bcmath, curl, openssl, mbstring, mongodb
           ini-values: memory_limit=-1
-          tools: pecl, composer, psalm
+          tools: pecl, composer
           coverage: none
       - name: Install dependencies
         run: composer install --dev
@@ -48,8 +48,12 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.4'
-          tools: phpstan
-
+          php-version: ${{ matrix.php }}
+          extensions: intl, bcmath, curl, openssl, mbstring, mongodb
+          ini-values: memory_limit=-1
+          tools: pecl, composer
+          coverage: none
+      - name: Install dependencies
+        run: composer install --dev
       - name: Run PHPStan
-        run: phpstan analyse src
+        run: composer phpstan
