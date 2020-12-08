@@ -13,15 +13,15 @@ declare(strict_types=1);
 
 namespace MezzioOAuthDoctrine\Tests\Unit\Manager;
 
-use MezzioOAuthDoctrine\Manager\AuthorizationCodeManager;
-use MezzioOAuthDoctrine\Model\AuthorizationCode;
+use MezzioOAuthDoctrine\Manager\RefreshTokenManager;
+use MezzioOAuthDoctrine\Model\RefreshToken;
 use PHPUnit\Framework\TestCase;
 
-class AuthorizationCodeManagerTest extends TestCase
+class RefreshTokenManagerTest extends TestCase
 {
     use TestManagerTrait;
 
-    protected string $managerClass = AuthorizationCodeManager::class;
+    protected string $managerClass = RefreshTokenManager::class;
 
-    protected string $entityClass = AuthorizationCode::class;
+    protected string $entityClass = RefreshToken::class;
 }

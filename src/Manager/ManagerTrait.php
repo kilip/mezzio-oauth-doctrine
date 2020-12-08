@@ -1,21 +1,35 @@
 <?php
 
+/*
+ * This file is part of the MezzioOAuthDoctrine project.
+ *
+ * (c) Anthonius Munthi <https://itstoni.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace MezzioOAuthDoctrine\Manager;
 
-
-use Doctrine\ODM\MongoDB\Repository\DocumentRepository;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Persistence\ObjectRepository;
 
+/**
+ * Trait ManagerTrait.
+ *
+ * @template T
+ */
 trait ManagerTrait
 {
     protected ObjectManager $om;
+
     protected string $class;
 
     /**
-     * @return ObjectRepository|DocumentRepository
+     * @psalm-suppress PropertyTypeCoercion
+     * @psalm-suppress ArgumentTypeCoercion
      */
     public function getRepository(): ObjectRepository
     {
@@ -23,17 +37,24 @@ trait ManagerTrait
     }
 
     /**
-     * @param string $identifier
-     * @return object|DocumentRepository|
+     * @psalm-suppress MixedInferredReturnType
      */
     public function find(string $identifier): ?object
     {
-        return $this->getRepository()->find($identifier);
+        $repository = $this->getRepository();
+
+        return $repository->find($identifier);
     }
 
     protected function doSave(object $object): void
     {
         $this->om->persist($object);
+        $this->om->flush();
+    }
+
+    protected function doRemove(object $object): void
+    {
+        $this->om->remove($object);
         $this->om->flush();
     }
 }

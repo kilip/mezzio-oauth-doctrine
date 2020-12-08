@@ -14,21 +14,24 @@ declare(strict_types=1);
 namespace MezzioOAuthDoctrine\Manager;
 
 use Doctrine\Persistence\ObjectManager;
-use MezzioOAuthDoctrine\Contracts\AuthorizationCodeManagerInterface;
-use MezzioOAuthDoctrine\Model\AuthorizationCodeInterface;
+use MezzioOAuthDoctrine\Contracts\RefreshTokenManagerInterface;
+use MezzioOAuthDoctrine\Model\RefreshToken;
+use MezzioOAuthDoctrine\Model\RefreshTokenInterface;
 
-class AuthorizationCodeManager implements AuthorizationCodeManagerInterface
+class RefreshTokenManager implements RefreshTokenManagerInterface
 {
     use ManagerTrait;
 
-    public function __construct(ObjectManager $om, string $class)
-    {
+    public function __construct(
+        ObjectManager $om,
+        string $class = RefreshToken::class
+    ) {
         $this->om    = $om;
         $this->class = $class;
     }
 
-    public function save(AuthorizationCodeInterface $authorizationCode): void
+    public function save(RefreshTokenInterface $refreshToken): void
     {
-        $this->doSave($authorizationCode);
+        $this->doSave($refreshToken);
     }
 }
