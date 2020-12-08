@@ -30,4 +30,4 @@ jobs:
           tools: pecl, composer, psalm
           coverage: none
       - name: Run psalm
-        run: psalm --shepherd --stats
+        run: psalm --output-format=github
