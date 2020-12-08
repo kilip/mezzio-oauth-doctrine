@@ -27,7 +27,7 @@ use MezzioOAuthDoctrine\Model\AccessTokenInterface;
 use function assert;
 use function is_string;
 
-class AccessTokenRepository implements AccessTokenRepositoryInterface
+final class AccessTokenRepository implements AccessTokenRepositoryInterface
 {
     private AccessTokenManagerInterface $accessTokenManager;
 
