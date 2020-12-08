@@ -29,5 +29,7 @@ jobs:
           ini-values: memory_limit=-1
           tools: pecl, composer, psalm
           coverage: none
+      - name: Install dependencies
+        run: composer install --dev
       - name: Run psalm
-        run: psalm --output-format=github
+        run: ./vendor/bin/psalm --output-format=github
