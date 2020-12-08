@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+
+env:
+  COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  COVERAGE: '0'
+
+jobs:
+  psalm:
+    name: "Static Analysis"
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      matrix:
+        php:
+          - '7.4'
+      fail-fast: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: intl, bcmath, curl, openssl, mbstring, mongodb
+          ini-values: memory_limit=-1
+          tools: pecl, composer, psalm
+          coverage: none
+      - name: Run PHP-CS-Fixer fix
+        run: psalm --shepherd --stats
