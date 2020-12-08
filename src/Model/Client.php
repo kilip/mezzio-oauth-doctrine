@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace MezzioOAuthDoctrine\Model;
 
-class Client
+class Client implements ClientInterface
 {
     private string $identifier;
 

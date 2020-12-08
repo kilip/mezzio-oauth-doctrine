@@ -15,7 +15,7 @@ namespace MezzioOAuthDoctrine\Model;
 
 use DateTimeInterface;
 
-class AuthorizationCode
+class AuthorizationCode implements AuthorizationCodeInterface
 {
     private string $identifier;
 

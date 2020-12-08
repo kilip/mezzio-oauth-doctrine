@@ -15,7 +15,7 @@ namespace MezzioOAuthDoctrine\Model;
 
 use DateTimeInterface;
 
-class AccessToken
+class AccessToken implements AccessTokenInterface
 {
     private string $identifier;
 

@@ -15,7 +15,7 @@ namespace MezzioOAuthDoctrine\Model;
 
 use DateTimeInterface;
 
-class RefreshToken
+class RefreshToken implements RefreshTokenInterface
 {
     private string $identifier;
 
