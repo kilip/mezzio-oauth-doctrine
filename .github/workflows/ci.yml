@@ -33,3 +33,23 @@ jobs:
         run: composer install --dev
       - name: Run psalm
         run: ./vendor/bin/psalm --output-format=github
+
+  # phpstan
+  phpstan:
+    name: "PHPStan"
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      matrix:
+        php:
+          - '7.4'
+      fail-fast: false
+    steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          tools: phpstan
+
+      - name: Run PHPStan
+        run: phpstan analyse src
