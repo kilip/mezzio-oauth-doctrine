@@ -59,3 +59,53 @@ jobs:
         run: composer install --dev
       - name: Run PHPStan
         run: composer phpstan
+
+  phpunit:
+    name: "PHPStan"
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      matrix:
+        php:
+          - '7.4'
+          - '8.0'
+        include:
+          - php: 7.4
+            coverage: trues
+      fail-fast: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache Composer cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.composer/cache
+          key: composer-cache-php${{ matrix.php }}
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: intl, bcmath, curl, openssl, mbstring, mongodb
+          ini-values: memory_limit=-1
+          tools: pecl, composer
+          coverage: pcov
+      - name: Install dependencies
+        run: composer install --dev
+      - name: Enable code coverage
+        if: matrix.coverage
+        run: echo "COVERAGE=1" >> $GITHUB_ENV
+      - name: Run PHPUnit
+        run: |
+          if [ "$COVERAGE" = '1' ]; then
+            composer test-coverage
+          else
+            composer test
+          fi
+      - name: Upload coverage results to Codecov
+        if: matrix.coverage
+        uses: codecov/codecov-action@v1
+        with:
+          name: phpunit-php${{ matrix.php }}
+          flags: phpunit
+          fail_ci_if_error: true
+        continue-on-error: true
