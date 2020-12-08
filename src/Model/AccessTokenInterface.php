@@ -23,7 +23,7 @@ interface AccessTokenInterface
 
     public function getUserIdentifier(): ?string;
 
-    public function getClient(): Client;
+    public function getClient(): ClientInterface;
 
     /**
      * @return iterable|Scope[]
@@ -32,5 +32,5 @@ interface AccessTokenInterface
 
     public function isRevoked(): bool;
 
-    public function revoke(): AccessToken;
+    public function revoke(): self;
 }

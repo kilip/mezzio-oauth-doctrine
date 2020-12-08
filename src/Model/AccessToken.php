@@ -23,7 +23,7 @@ class AccessToken implements AccessTokenInterface
 
     private ?string $userIdentifier;
 
-    private Client $client;
+    private ClientInterface $client;
 
     /** @var iterable|Scope[] */
     private iterable $scopes = [];
@@ -33,7 +33,7 @@ class AccessToken implements AccessTokenInterface
     public function __construct(
         string $identifier,
         DateTimeInterface $expiry,
-        Client $client,
+        ClientInterface $client,
         ?string $userIdentifier,
         iterable $scopes
     ) {
@@ -64,7 +64,7 @@ class AccessToken implements AccessTokenInterface
         return $this->userIdentifier;
     }
 
-    public function getClient(): Client
+    public function getClient(): ClientInterface
     {
         return $this->client;
     }

@@ -53,8 +53,7 @@
             "@test"
         ],
         "code-fix": [
-            "php-cs-fixer fix",
-            "@cs-fix"
+            "php-cs-fixer fix"
         ],
         "phpstan": "./vendor/bin/phpstan analyse",
         "cs-check": "phpcs",
