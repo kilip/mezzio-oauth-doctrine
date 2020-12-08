@@ -23,7 +23,7 @@ class AuthorizationCode implements AuthorizationCodeInterface
 
     private ?string $userIdentifier;
 
-    private Client $client;
+    private ClientInterface $client;
 
     /** @var iterable|Scope[] */
     private $scopes = [];
@@ -33,7 +33,7 @@ class AuthorizationCode implements AuthorizationCodeInterface
     public function __construct(
         string $identifier,
         DateTimeInterface $expiry,
-        Client $client,
+        ClientInterface $client,
         ?string $userIdentifier,
         array $scopes
     ) {
@@ -64,7 +64,7 @@ class AuthorizationCode implements AuthorizationCodeInterface
         return $this->userIdentifier;
     }
 
-    public function getClient(): Client
+    public function getClient(): ClientInterface
     {
         return $this->client;
     }

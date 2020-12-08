@@ -23,7 +23,7 @@ interface AuthorizationCodeInterface
 
     public function getUserIdentifier(): ?string;
 
-    public function getClient(): Client;
+    public function getClient(): ClientInterface;
 
     /**
      * @return iterable|Scope[]
