@@ -21,6 +21,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Cache Composer cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.composer/cache
+          key: composer-cache-php${{ matrix.php }}
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -47,6 +52,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Cache Composer cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.composer/cache
+          key: composer-cache-php${{ matrix.php }}
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -61,14 +71,14 @@ jobs:
         run: composer phpstan
 
   phpunit:
-    name: "PHPStan"
+    name: "PHPUnit"
     runs-on: ubuntu-latest
     timeout-minutes: 20
     strategy:
       matrix:
         php:
           - '7.4'
-          - '8.0'
+          #- '8.0'
         include:
           - php: 7.4
             coverage: trues
