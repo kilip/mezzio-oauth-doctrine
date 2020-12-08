@@ -1,0 +1,9 @@
+parameters:
+	level: 5
+	paths:
+		- src
+		- test
+	inferPrivatePropertyTypeFromConstructor: true
+	earlyTerminatingMethodCalls:
+		PHPUnit\Framework\Constraint\Constraint:
+			- fail

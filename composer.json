@@ -1,0 +1,62 @@
+{
+    "name": "kilip/mezzio-oauth-doctrine",
+    "description": "Doctrine Integration for Mezzio Authentication OAuth2",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anthonius Munthi",
+            "email": "me@itstoni.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "MezzioOAuthDoctrine\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MezzioOAuthDoctrine\\Tests\\": "test/"
+        }
+    },
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "require": {
+        "php": ">=7.4",
+        "mezzio/mezzio-authentication-oauth2": "^2.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.17",
+        "laminas/laminas-coding-standard": "^2.1",
+        "phpstan/extension-installer": "^1.0",
+        "phpstan/phpstan": "^0.12.59",
+        "phpstan/phpstan-doctrine": "^0.12.25",
+        "phpstan/phpstan-phpunit": "^0.12.16",
+        "phpunit/phpunit": "^9.5",
+        "psalm/plugin-phpunit": "^0.13.0",
+        "vimeo/psalm": "^4.3"
+    },
+    "scripts": {
+        "check": [
+            "@cs-check",
+            "@static-analysis",
+            "@phpstan",
+            "@test"
+        ],
+        "code-fix": [
+            "php-cs-fixer fix",
+            "@cs-fix"
+        ],
+        "phpstan": "./vendor/bin/phpstan analyse",
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "static-analysis": "psalm --shepherd --stats",
+        "test": "phpunit --colors=always",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
+    }
+}
