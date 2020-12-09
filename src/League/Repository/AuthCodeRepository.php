@@ -18,7 +18,7 @@ use League\OAuth2\Server\Exception\UniqueTokenIdentifierConstraintViolationExcep
 use League\OAuth2\Server\Repositories\AuthCodeRepositoryInterface;
 use MezzioOAuthDoctrine\Contracts\AuthorizationCodeManagerInterface;
 use MezzioOAuthDoctrine\Contracts\ClientManagerInterface;
-use MezzioOAuthDoctrine\Converter\ScopeConverterInterface;
+use MezzioOAuthDoctrine\Contracts\ScopeConverterInterface;
 use MezzioOAuthDoctrine\League\Entity\AuthCodeEntity;
 use MezzioOAuthDoctrine\Model\AuthorizationCode;
 use MezzioOAuthDoctrine\Model\AuthorizationCodeInterface;

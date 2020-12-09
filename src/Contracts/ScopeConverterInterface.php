@@ -11,24 +11,26 @@
 
 declare(strict_types=1);
 
-namespace MezzioOAuthDoctrine\Converter;
+namespace MezzioOAuthDoctrine\Contracts;
 
 use League\OAuth2\Server\Entities\ScopeEntityInterface;
-use MezzioOAuthDoctrine\Model\Scope;
+use MezzioOAuthDoctrine\Model\Scope as ScopeModel;
 
 interface ScopeConverterInterface
 {
+    public function toDomain(ScopeEntityInterface $scope): ScopeModel;
+
     /**
-     * @param array $scopes
-     * @return iterable|ScopeEntityInterface[]
+     * @param array|ScopeEntityInterface[] $scopes
+     * @return iterable|ScopeModel[]
      */
     public function toDomainArray(array $scopes): iterable;
 
-    public function toLeague(Scope $scope): ScopeEntityInterface;
+    public function toLeague(ScopeModel $scope): ScopeEntityInterface;
 
     /**
-     * @param iterable|ScopeEntityInterface[] $scopes
+     * @param array|ScopeModel[] $scopes
      * @return array|iterable|ScopeEntityInterface[]
      */
-    public function toLeagueArray(iterable $scopes): iterable;
+    public function toLeagueArray(array $scopes): iterable;
 }

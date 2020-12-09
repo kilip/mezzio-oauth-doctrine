@@ -20,7 +20,7 @@ use League\OAuth2\Server\Entities\ScopeEntityInterface;
 use League\OAuth2\Server\Exception\UniqueTokenIdentifierConstraintViolationException;
 use MezzioOAuthDoctrine\Contracts\AccessTokenManagerInterface;
 use MezzioOAuthDoctrine\Contracts\ClientManagerInterface;
-use MezzioOAuthDoctrine\Converter\ScopeConverterInterface;
+use MezzioOAuthDoctrine\Contracts\ScopeConverterInterface;
 use MezzioOAuthDoctrine\League\Entity\AccessTokenEntity;
 use MezzioOAuthDoctrine\League\Repository\AccessTokenRepository;
 use MezzioOAuthDoctrine\Model\AccessTokenInterface;
