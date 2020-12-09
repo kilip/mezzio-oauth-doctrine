@@ -21,4 +21,37 @@ final class ClientEntity implements ClientEntityInterface
 {
     use ClientTrait;
     use EntityTrait;
+
+    private bool $allowPlainTextPkce = false;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName(): string
+    {
+        return (string) $this->getIdentifier();
+    }
+
+    /**
+     * @param string[] $redirectUri
+     */
+    public function setRedirectUri(array $redirectUri): void
+    {
+        $this->redirectUri = $redirectUri;
+    }
+
+    public function setConfidential(bool $isConfidential): void
+    {
+        $this->isConfidential = $isConfidential;
+    }
+
+    public function isPlainTextPkceAllowed(): bool
+    {
+        return $this->allowPlainTextPkce;
+    }
+
+    public function setAllowPlainTextPkce(bool $allowPlainTextPkce): void
+    {
+        $this->allowPlainTextPkce = $allowPlainTextPkce;
+    }
 }

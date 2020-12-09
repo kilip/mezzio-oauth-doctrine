@@ -20,7 +20,7 @@ interface ClientInterface
     public function getSecret(): ?string;
 
     /**
-     * @return iterable|RedirectUri[]
+     * @return array|iterable|RedirectUri[]
      */
     public function getRedirectUris(): iterable;
 
