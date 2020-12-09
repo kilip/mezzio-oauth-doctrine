@@ -22,9 +22,16 @@ use function array_map;
 
 final class ScopeConverter implements ScopeConverterInterface
 {
+    private string $modelClass;
+
+    public function __construct(string $modelClass=ScopeModel::class)
+    {
+        $this->modelClass = $modelClass;
+    }
+
     public function toDomain(ScopeEntityInterface $scope): ScopeModel
     {
-        return new ScopeModel($scope->getIdentifier());
+        return new $this->modelClass($scope->getIdentifier());
     }
 
     /**
