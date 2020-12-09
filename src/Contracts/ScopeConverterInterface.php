@@ -18,7 +18,10 @@ use MezzioOAuthDoctrine\Model\Scope as ScopeModel;
 
 interface ScopeConverterInterface
 {
-    public function toDomain(ScopeEntityInterface $scope): ScopeModel;
+    /**
+     * @return object|ScopeModel
+     */
+    public function toDomain(ScopeEntityInterface $scope): object;
 
     /**
      * @param array|ScopeEntityInterface[] $scopes

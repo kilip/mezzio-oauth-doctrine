@@ -19,19 +19,29 @@ use MezzioOAuthDoctrine\League\Entity\ScopeEntity;
 use MezzioOAuthDoctrine\Model\Scope as ScopeModel;
 
 use function array_map;
+use function assert;
+use function class_exists;
 
 final class ScopeConverter implements ScopeConverterInterface
 {
     private string $modelClass;
 
-    public function __construct(string $modelClass=ScopeModel::class)
+    public function __construct(string $modelClass = ScopeModel::class)
     {
         $this->modelClass = $modelClass;
     }
 
+    /**
+     * @psalm-suppress MixedMethodCall
+     * @psalm-suppress LessSpecificReturnStatement
+     * @psalm-suppress MoreSpecificReturnType
+     */
     public function toDomain(ScopeEntityInterface $scope): ScopeModel
     {
-        return new $this->modelClass($scope->getIdentifier());
+        $class = $this->modelClass;
+        assert(class_exists($class));
+
+        return new $class($scope->getIdentifier());
     }
 
     /**
