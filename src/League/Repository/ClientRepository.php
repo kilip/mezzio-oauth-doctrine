@@ -25,7 +25,7 @@ use function hash_equals;
 use function in_array;
 use function is_array;
 
-class ClientRepository implements ClientRepositoryInterface
+final class ClientRepository implements ClientRepositoryInterface
 {
     private ClientManagerInterface $clientManager;
 

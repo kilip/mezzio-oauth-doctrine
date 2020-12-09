@@ -23,7 +23,7 @@ use MezzioOAuthDoctrine\League\Entity\AuthCodeEntity;
 use MezzioOAuthDoctrine\Model\AuthorizationCode;
 use MezzioOAuthDoctrine\Model\AuthorizationCodeInterface;
 
-class AuthCodeRepository implements AuthCodeRepositoryInterface
+final class AuthCodeRepository implements AuthCodeRepositoryInterface
 {
     private AuthorizationCodeManagerInterface $authCodeManager;
     private ClientManagerInterface $clientManager;
