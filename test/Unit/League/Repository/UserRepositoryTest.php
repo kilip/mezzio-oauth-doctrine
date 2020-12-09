@@ -14,10 +14,10 @@ declare(strict_types=1);
 namespace MezzioOAuthDoctrine\Tests\Unit\League\Repository;
 
 use League\OAuth2\Server\Entities\ClientEntityInterface;
-use League\OAuth2\Server\Entities\UserEntityInterface;
 use MezzioOAuthDoctrine\Contracts\ClientManagerInterface;
 use MezzioOAuthDoctrine\Contracts\OAuthUserInterface;
 use MezzioOAuthDoctrine\Contracts\UserConverterInterface;
+use MezzioOAuthDoctrine\Contracts\UserEntityInterface;
 use MezzioOAuthDoctrine\Contracts\UserResolverInterface;
 use MezzioOAuthDoctrine\League\Repository\UserRepository;
 use MezzioOAuthDoctrine\Model\ClientInterface;

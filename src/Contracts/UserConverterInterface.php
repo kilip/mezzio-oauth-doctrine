@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace MezzioOAuthDoctrine\Contracts;
 
-use League\OAuth2\Server\Entities\UserEntityInterface;
-
 interface UserConverterInterface
 {
     public function toLeague(OAuthUserInterface $user): UserEntityInterface;

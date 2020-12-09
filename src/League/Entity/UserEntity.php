@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace MezzioOAuthDoctrine\League\Entity;
 
 use League\OAuth2\Server\Entities\Traits\EntityTrait;
-use League\OAuth2\Server\Entities\UserEntityInterface;
+use MezzioOAuthDoctrine\Contracts\UserEntityInterface;
 
 final class UserEntity implements UserEntityInterface
 {

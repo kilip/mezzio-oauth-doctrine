@@ -14,10 +14,10 @@ declare(strict_types=1);
 namespace MezzioOAuthDoctrine\League\Repository;
 
 use League\OAuth2\Server\Entities\ClientEntityInterface;
-use League\OAuth2\Server\Entities\UserEntityInterface;
 use League\OAuth2\Server\Repositories\UserRepositoryInterface;
 use MezzioOAuthDoctrine\Contracts\ClientManagerInterface;
 use MezzioOAuthDoctrine\Contracts\UserConverterInterface;
+use MezzioOAuthDoctrine\Contracts\UserEntityInterface;
 use MezzioOAuthDoctrine\Contracts\UserResolverInterface;
 use MezzioOAuthDoctrine\Model\ClientInterface;
 use MezzioOAuthDoctrine\Model\Grant;
@@ -40,6 +40,8 @@ class UserRepository implements UserRepositoryInterface
 
     /**
      * {@inheritDoc}
+     *
+     * @retrun UserEntityInterface|null
      */
     public function getUserEntityByUserCredentials(
         $username,

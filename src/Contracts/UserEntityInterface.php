@@ -13,7 +13,13 @@ declare(strict_types=1);
 
 namespace MezzioOAuthDoctrine\Contracts;
 
-interface OAuthUserInterface
+use League\OAuth2\Server\Entities\UserEntityInterface as LeagueUserEntity;
+
+interface UserEntityInterface extends LeagueUserEntity
 {
-    public function getOAuthIdentifier(): string;
+    /**
+     * @param string $identifier
+     * @return void
+     */
+    public function setIdentifier($identifier);
 }
