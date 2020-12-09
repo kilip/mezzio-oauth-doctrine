@@ -21,12 +21,15 @@ class RefreshToken implements RefreshTokenInterface
 
     private DateTimeInterface $expiry;
 
-    private ?AccessToken $accessToken;
+    private ?AccessTokenInterface $accessToken;
 
     private bool $revoked = false;
 
-    public function __construct(string $identifier, DateTimeInterface $expiry, ?AccessToken $accessToken = null)
-    {
+    public function __construct(
+        string $identifier,
+        DateTimeInterface $expiry,
+        ?AccessTokenInterface $accessToken = null
+    ) {
         $this->identifier  = $identifier;
         $this->expiry      = $expiry;
         $this->accessToken = $accessToken;
@@ -47,7 +50,7 @@ class RefreshToken implements RefreshTokenInterface
         return $this->expiry;
     }
 
-    public function getAccessToken(): ?AccessToken
+    public function getAccessToken(): ?AccessTokenInterface
     {
         return $this->accessToken;
     }

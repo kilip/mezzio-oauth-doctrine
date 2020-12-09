@@ -21,7 +21,7 @@ interface RefreshTokenInterface
 
     public function getExpiry(): DateTimeInterface;
 
-    public function getAccessToken(): ?AccessToken;
+    public function getAccessToken(): ?AccessTokenInterface;
 
     public function isRevoked(): bool;
 

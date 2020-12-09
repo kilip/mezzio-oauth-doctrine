@@ -105,6 +105,6 @@ final class ClientRepository implements ClientRepositoryInterface
             return true;
         }
 
-        return in_array($grant, $grants);
+        return in_array($grant, $grants, true);
     }
 }

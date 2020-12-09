@@ -36,6 +36,7 @@
         "doctrine/mongodb-odm": "^2.1",
         "doctrine/orm": "^2.8",
         "friendsofphp/php-cs-fixer": "^2.17",
+        "jangregor/phpstan-prophecy": "^0.8.1",
         "laminas/laminas-coding-standard": "^2.1",
         "phpstan/extension-installer": "^1.0",
         "phpstan/phpstan": "^0.12.59",

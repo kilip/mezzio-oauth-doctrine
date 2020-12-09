@@ -2,7 +2,13 @@ parameters:
 	level: 5
 	paths:
 		- src
+		- test
 	inferPrivatePropertyTypeFromConstructor: true
 	earlyTerminatingMethodCalls:
 		PHPUnit\Framework\Constraint\Constraint:
 			- fail
+
+	ignoreErrors:
+	    - message: '#Call to function in_array#'
+	      paths:
+	        - src/League/Repository/ClientRepository.php

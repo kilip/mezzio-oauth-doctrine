@@ -26,20 +26,22 @@ use MezzioOAuthDoctrine\League\Repository\AccessTokenRepository;
 use MezzioOAuthDoctrine\Model\AccessTokenInterface;
 use MezzioOAuthDoctrine\Model\ClientInterface;
 use MezzioOAuthDoctrine\Model\Scope;
-use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Prophecy\PhpUnit\ProphecyTrait;
+use Prophecy\Prophecy\ObjectProphecy;
 
 class AccessTokenRepositoryTest extends TestCase
 {
     use ProphecyTrait;
 
-    /** @var AccessTokenManagerInterface|MockObject */
+    /** @var AccessTokenManagerInterface|ObjectProphecy */
     private $accessTokenManager;
-    /** @var ClientManagerInterface|MockObject */
+
+    /** @var ClientManagerInterface|ObjectProphecy */
     private $clientManager;
-    /** @var ScopeConverterInterface|MockObject */
+
+    /** @var ScopeConverterInterface|ObjectProphecy */
     private $scopeConverter;
 
     protected function setUp(): void
